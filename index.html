@@ -149,7 +149,18 @@ document.addEventListener('mousemove', (event) => {
 
     </div>
 
+      <audio src="photograph.mp3" autoplay controls loop hidden id="audio"></audio>
+  <script>
+  
+  window.addEventListener('click', ()=>{
     
+    let audio = document.querySelector('#audio')
+    
+    audio.play()
+    
+  }, {once: true});
+    
+  </script>
 
 </body>
 
