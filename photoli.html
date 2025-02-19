@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photograph</title>
+
+    <style>
+
+        body{
+        background-color: black;
+        padding: 20px;
+        }
+
+        #curse{
+
+        background-color: hsla(240, 77%, 53%, 0.168);
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 0 0 30px rgb(150, 147, 246);
+        position: absolute;
+        }
+
+        .glow {
+            color: rgb(255, 255, 255);
+            text-shadow: 0 0 10px white;
+            transition: all 1s ease;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        #text{
+
+            font-size: 40px;
+            text-align: center;
+            font-family: cursive;
+        }
+
+    </style>
+
+    <script>
+
+document.addEventListener('mousemove', (event) => {
+    let div = document.querySelector("#curse");
+    if (div) {
+        const rect = div.getBoundingClientRect();
+        div.style.left = (event.pageX - rect.width / 2) + 'px';
+        div.style.top = (event.pageY - rect.height / 2) + 'px';
+    }
+});
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const spans = document.querySelectorAll('#text pre span');
+            const curse = document.getElementById('curse');
+
+            document.addEventListener('mousemove', (e) => {
+                const rect = curse.getBoundingClientRect();
+                spans.forEach(span => {
+                    const spanRect = span.getBoundingClientRect();
+                    if (
+                        rect.left < spanRect.right &&
+                        rect.right > spanRect.left &&
+                        rect.top < spanRect.bottom &&
+                        rect.bottom > spanRect.top
+                    ) {
+                        span.classList.add("glow");
+                        span.classList.remove("hidden");
+                    } else {
+                        span.classList.remove("glow");
+                        span.classList.add("hidden");
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div id="curse"></div>
+    <div id="text">
+
+        <pre>
+            <span>"Photograph"</span><br>
+            <span>Loving can hurt</span>
+            <span>Loving can hurt sometimes</span>
+            <span>But it's the only thing that I know</span>
+            <span>When it gets hard</span>
+            <span>You know it can get hard sometimes</span>
+            <span>It is the only thing that makes us feel alive</span>
+            <span>We keep this love in a photograph</span>
+            <span>We made these memories for ourselves</span>
+            <span>Where our eyes are never closing</span>
+            <span>Hearts are never broken</span>
+            <span>Times forever frozen still</span>
+            <span>So you can keep me</span>
+            <span>Inside the pocket</span>
+            <span>Of your ripped jeans</span>
+            <span>Holding me closer</span>
+            <span>'Til our eyes meet</span>
+            <span>You won't ever be alone</span>
+            <span>Wait for me to come home</span>
+            <span>Loving can heal</span>
+            <span>Loving can mend your soul</span>
+            <span>And it's the only thing that I know (know)</span>
+            <span>I swear it will get easier</span>
+            <span>Remember that with every piece of ya</span>
+            <span>And it's the only thing we take with us when we die</span>
+            <span>We keep this love in a photograph</span>
+            <span>We made these memories for ourselves</span>
+            <span>Where our eyes are never closing</span>
+            <span>Hearts were never broken</span>
+            <span>Times forever frozen still</span>
+            <span>So you can keep me</span>
+            <span>Inside the pocket</span>
+            <span>Of your ripped jeans</span>
+            <span>Holding me closer</span>
+            <span>'Til our eyes meet</span>
+            <span>You won't ever be alone</span>
+            <span>And if you hurt me</span>
+            <span>That's OK, baby, only words bleed</span>
+            <span>Inside these pages you just hold me</span>
+            <span>And I won't ever let you go</span>
+            <span>Wait for me to come home</span>
+            <span>Wait for me to come home</span>
+            <span>Wait for me to come home</span>
+            <span>Wait for me to come home</span>
+            <span>Oh you can fit me</span>
+            <span>Inside the necklace you got when you were sixteen</span>
+            <span>Next to your heartbeat</span>
+            <span>Where I should be</span>
+            <span>Keep it deep within your soul</span>
+            <span>And if you hurt me</span>
+            <span>Well, that's OK, baby, only words bleed</span>
+            <span>Inside these pages you just hold me</span>
+            <span>And I won't ever let you go</span>
+            <span>When I'm away</span>
+            <span>I will remember how you kissed me</span>
+            <span>Under the lamppost</span>
+            <span>Back on 6th street</span>
+            <span>Hearing you whisper through the phone</span>
+            <span>"Wait for me to come home"</span>
+        </pre>
+
+    </div>
+
+    
+
+</body>
+
+</html>
